@@ -1,24 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { SignupPage } from './pages/SignupPage/SignupPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import { BrowserRouter, Route,Switch } from 'react-router-dom';
+import { TasksPage } from './pages/TasksPage/TasksPage';
+import { TaskCreatePage } from './pages/TaskCreatePage/TaskCreatePage';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/login' component={LoginPage}/>
+          <Route path='/signup' component={SignupPage}/>
+          <Route path='/tasks' component={TasksPage}/>
+          <Route path='/create' component={TaskCreatePage}/>
+        </Switch>      
+      </BrowserRouter>      
     </div>
   );
 }
